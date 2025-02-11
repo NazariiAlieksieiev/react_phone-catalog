@@ -1,1 +1,8 @@
-// not empty
+@import './modules/shared/styles/utils/variables';
+@import './modules/shared/styles/blocks/Container';
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
