@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/dot-notation */
+import { Link } from 'react-router-dom';
 import style from './Footer.module.scss';
 
 export const Footer: React.FC = () => {
@@ -8,13 +9,13 @@ export const Footer: React.FC = () => {
 
   return (
     <footer className={style['footer']}>
-      <a href="#" className={style['footer__logo-link']}>
+      <Link to="/home" className={style['footer__logo-link']}>
         <img
           src="/icons/Logo.png"
           alt="footer logo"
           className={style['footer__logo']}
         />
-      </a>
+      </Link>
 
       <ul className={style['footer__list']}>
         <li className={style['footer__list-item']}>

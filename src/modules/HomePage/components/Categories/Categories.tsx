@@ -1,14 +1,23 @@
 /* eslint-disable @typescript-eslint/dot-notation */
 import { useEffect, useState } from 'react';
 import style from './Categories.module.scss';
-import categoriesFromApi from '../../../../api/categories.json';
 import { Categories as CategoriesType } from '../../../shared/types/types';
+import { fetchJson } from '../../../shared/utils/fetchJSON';
 
 export const Categories: React.FC = () => {
   const [categories, setCategories] = useState<CategoriesType[]>([]);
 
   useEffect(() => {
-    setCategories(categoriesFromApi);
+    const loadCategory = async () => {
+      const slidesFromApi =
+        await fetchJson<CategoriesType[]>('categories.json');
+
+      if (slidesFromApi) {
+        setCategories(slidesFromApi);
+      }
+    };
+
+    loadCategory();
   }, []);
 
   return (

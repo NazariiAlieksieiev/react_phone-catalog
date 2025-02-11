@@ -6,20 +6,33 @@ import { Pagination, A11y, Autoplay, Mousewheel } from 'swiper/modules';
 import { Swiper as SwiperInstance } from 'swiper';
 import { BannerSlide } from '../BannerSlide/BannerSlide';
 
-import apiSlides from '../../../../api/banner_slides.json';
-
 import 'swiper/scss';
 import 'swiper/css/a11y';
 import 'swiper/scss/pagination';
 import style from './BannerSwiper.module.scss';
 import { Slide } from '../../../shared/types/types';
+import { fetchJson } from '../../../shared/utils/fetchJSON';
+
+const slidesFromApiPromise = fetchJson<Slide[]>('banner_slides.json');
 
 export const BannerSwiper: React.FC = () => {
   const [swiper, setSwiper] = useState<SwiperInstance | null>(null);
   const [slides, setSlides] = useState<Slide[] | []>([]);
 
   useEffect(() => {
-    setSlides(apiSlides);
+    const loadSlides = async () => {
+      try {
+        const slidesFromApi = await slidesFromApiPromise;
+
+        if (slidesFromApi) {
+          setSlides(slidesFromApi);
+        }
+      } catch (error) {
+        console.error('Failed to load slides:', error);
+      }
+    };
+
+    loadSlides();
   }, []);
 
   if (slides.length === 0) {
@@ -40,7 +53,7 @@ export const BannerSwiper: React.FC = () => {
         modules={[Pagination, A11y, Autoplay, Mousewheel]}
         spaceBetween={5}
         slidesPerView={1}
-        // autoplay={{ delay: 5000 }}
+        autoplay={{ delay: 5000 }}
         loop={true}
         mousewheel={true}
         pagination={{

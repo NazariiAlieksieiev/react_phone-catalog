@@ -1,10 +1,29 @@
-import products from '../../../../public/api/products.json';
+import { Product } from '../types/types';
+import { fetchJson } from './fetchJSON';
 
-export const newModels = products.filter(
-  product =>
-    product.category === 'phones' &&
-    product.year >= 2022 &&
-    product.capacity === '256GB',
-);
+const productsFromApi = fetchJson<Product[]>('products.json');
 
-export const hotPrices = products.filter(product => +product.year <= 2018);
+export const getNewModels = async () => {
+  const products = await productsFromApi;
+
+  if (products) {
+    return products.filter(
+      product =>
+        product.category === 'phones' &&
+        product.year >= 2022 &&
+        product.capacity === '256GB',
+    );
+  }
+
+  return [];
+};
+
+export const getHotPrices = async () => {
+  const products = await productsFromApi;
+
+  if (products) {
+    return products.filter(product => +product.year <= 2018);
+  }
+
+  return [];
+};
