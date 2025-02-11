@@ -1,0 +1,21 @@
+@import '../shared/styles/utils/mixins';
+
+.home-page__title {
+  padding-top: 24px;
+  margin-bottom: 24px;
+  width: 300px;
+  align-self: flex-start;
+
+
+  @include on-tablet {
+    padding-top: 32px;
+    margin-bottom: 32px;
+    width: 420px;
+  }
+
+  @include on-desktop {
+    padding-top: 56px;
+    margin-bottom: 56px;
+    width: 100%;
+  }
+}

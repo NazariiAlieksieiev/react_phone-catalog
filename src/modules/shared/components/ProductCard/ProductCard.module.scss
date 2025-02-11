@@ -1,0 +1,214 @@
+@import '../../styles/utils/variables';
+@import '../../../shared/styles/utils/mixins';
+
+.product-card {
+  width: 212px;
+  font-family: Mont, sans-serif;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 32px;
+
+  background-color: $surface1;
+
+  &__img {
+    width: 148px;
+    height: 129px;
+    object-fit: contain;
+    margin-bottom: 8px;
+  }
+
+  &__title-container {
+    width: 100%;
+    height: 58px;
+    display: flex;
+  }
+
+  &__title {
+    font-family: Mont, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 21px;
+    margin-bottom: 8px;
+    align-self: flex-end;
+
+    text-decoration: none;
+    color: $white;
+
+    transition: transform 0.3s linear;
+
+    &:active {
+      transform-origin: left;
+      transform: scale(0.95);
+      color: $hover-accent;
+    }
+  }
+
+  &__prices {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    border-bottom: 1px solid $elements;
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+  }
+
+  &__price {
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 30.8px;
+    margin: 0;
+
+    &:first-child {
+      margin-right: 8px;
+    }
+  }
+
+  &__description {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 15.34px;
+    margin-bottom: 8px;
+
+    &-cell--left,
+    &-cell--right {
+      padding-bottom: 8px;
+    }
+
+    &-cell--left {
+      text-align: left;
+      color: $secondary;
+    }
+
+    &-cell--right {
+      text-align: right;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+
+  &__add-to-cart {
+    width: 100px;
+    height: 40px;
+
+    background-color: $accent;
+
+    text-align: center;
+    color: $white;
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 700;
+  }
+
+  &__add-to-favorite {
+    width: 40px;
+    height: 40px;
+    background-color: $surface2;
+    background-image: url('/icons/Heart.png');
+    background-size: 16px;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  &__add-to-cart,
+  &__add-to-favorite {
+    font-family: inherit;
+    margin: 0;
+    outline: none;
+    border: none;
+
+    transition: transform 0.3s linear;
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+}
+
+@include on-tablet {
+  .product-card {
+    width: 237px;
+
+    &__img {
+      width: 173px;
+      height: 202px;
+    }
+
+    &__buttons {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
+    &__add-to-cart {
+      width: 125px;
+    }
+  }
+}
+
+@include on-desktop {
+  .product-card {
+    width: 272px;
+    transition: transform 0.3s linear;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    &__title {
+      &:hover {
+        color: $accent;
+      }
+    }
+
+    &__img {
+      width: 208px;
+      height: 196px;
+    }
+
+    &__add-to-cart,
+    &__add-to-favorite {
+      cursor: pointer;
+    }
+
+    &__add-to-cart {
+      width: 160px;
+
+      &:hover {
+        background-color: $hover-accent;
+      }
+    }
+
+     &__add-to-favorite {
+      &:hover {
+        background-color: $icons;
+      }
+    }
+  }
+}
+
+.is--discount {
+  font-family: Mont, sans-serif;
+  color: $secondary;
+  font-weight: 600;
+  line-height: 28.12px;
+  text-decoration: line-through;
+}
+
+.is--added {
+  background-image: url('/icons/Heart_fieled.png');
+  background-size: 16px;
+  background-repeat: no-repeat;
+  background-position: center;
+}

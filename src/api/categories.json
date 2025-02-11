@@ -1,0 +1,21 @@
+[
+  {
+    "categoryName": "Mobile phone",
+    "categoryBackground": "#6D6474",
+    "categoryImg": "../../img/category-phones.webp",
+    "categoryPath": "#"
+  },
+  {
+    "categoryName": "Tablets",
+    "categoryBackground": "#8D8D92",
+    "categoryImg": "../../img/category-tablets.webp",
+    "categoryPath": "#"
+  },
+  {
+    "categoryName": "Accessories",
+    "categoryBackground": "#973D5F",
+    "categoryImg": "../../img/category-accessories.webp",
+    "categoryPath": "#"
+  }
+]
+

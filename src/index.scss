@@ -1,0 +1,63 @@
+@import './modules/shared/styles/utils/variables';
+@import './modules/shared/styles/utils/mixins';
+@import './modules/shared/styles/blocks/Container';
+
+@font-face {
+  font-family: Mont;
+  src: url('/fonts/Mont-Regular.otf') format('opentype');
+}
+
+@font-face {
+  font-family: Mont;
+  src: url('/fonts/Mont-Bold.otf') format('opentype');
+}
+
+@font-face {
+  font-family: Mont;
+  src: url('/fonts/Mont-SemiBold.otf') format('opentype');
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: $black;
+  color: $white;
+  font-family: Mont, Arial, sans-serif;
+}
+
+body,
+p,
+a,
+ul,
+li,
+h1,
+h2,
+h3,
+h4,
+button {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  color: $white;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 41px;
+  letter-spacing: -0.01em;
+
+  @include on-tablet {
+    font-size: 48px;
+    line-height: 56px;
+  }
+}
+
+h2 {
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 30.8px;
+
+  @include on-tablet {
+    font-size: 32px;
+    line-height: 41px;
+  }
+}

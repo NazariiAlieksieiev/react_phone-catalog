@@ -1,0 +1,148 @@
+@import '../../../shared/styles/utils/variables';
+@import '../../../shared/styles/utils/mixins';
+
+.categories {
+  box-sizing: border-box;
+  margin-bottom: $section-margin-bottom-mobile;
+
+  &__title {
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 30.8px;
+    margin-bottom: 24px;
+  }
+
+  &__category {
+    &-link {
+      position: relative;
+      display: block;
+      background-color: #6d6474;
+      width: 288px;
+      height: 288px;
+      text-decoration: none;
+      overflow: hidden;
+      margin-bottom: 24px;
+
+      transition: transform 0.3s linear;
+
+      &:active {
+        transform: scale(0.95);
+      }
+    }
+
+    &-img {
+      position: absolute;
+      width: 302.09px;
+      height: 357.65px;
+      left: 38px;
+      top: 31px;
+    }
+
+    &-title {
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 25.56px;
+      margin-bottom: 4px;
+
+      text-decoration: none;
+      color: inherit;
+
+      transform-origin: center;
+      display: inline-block;
+      transition: transform 0.3s linear;
+
+      &:active {
+        transform: scale(0.95);
+        color: $accent;
+      }
+    }
+
+    &-amount {
+      color: $secondary;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 21px;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 32px;
+    }
+  }
+}
+
+@include on-tablet {
+  .categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: $section-margin-bottom-tablet;
+
+    &__title {
+      width: 100%;
+      font-size: 32px;
+      line-height: 41px;
+      letter-spacing: -0.01em;
+    }
+
+    &__category {
+      &:not(:last-child) {
+        margin-right: 15px;
+        margin-bottom: 0;
+      }
+
+      &-link {
+        width: 187px;
+        height: 187px;
+      }
+
+      &-img {
+        width: 196.15px;
+        height: 232.23px;
+        left: 25px;
+        top: 20px;
+      }
+
+      &-amount {
+        color: $secondary;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 21px;
+      }
+    }
+  }
+}
+
+@include on-desktop {
+  .categories {
+    margin-bottom: $section-margin-bottom-desktop;
+
+    &__category {
+      &-link {
+        width: 368px;
+        height: 368px;
+      }
+
+      &-title {
+        transform-origin: left;
+
+        &:hover {
+          color: $accent;
+        }
+      }
+
+      &-img {
+        width: 386px;
+        height: 457px;
+        left: 45px;
+        top: 40px;
+
+        transition: transform 0.3s linear;
+
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+[
+  {
+    "imgPathMobile": "/img/main-slider/iphone-14-pro-mobile.png",
+    "imgPathTablet": "/img/main-slider/iphone-14-pro-tablet.png",
+    "pathToOrder": null,
+    "backgroundColor": "#000000"
+  },
+  {
+    "imgPathMobile": "/img/main-slider/apple-ipad-mobile.png",
+    "imgPathTablet": "/img/main-slider/apple-ipad-mobile.png",
+    "pathToOrder": null,
+    "backgroundColor": "#ffffff"
+  },
+  {
+    "imgPathMobile": "/img/main-slider/apple-watch-mobile.png",
+    "imgPathTablet": "/img/main-slider/apple-watch-mobile.png",
+    "pathToOrder": null,
+    "backgroundColor": "#ffffff"
+  }
+]

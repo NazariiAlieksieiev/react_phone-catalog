@@ -1,0 +1,107 @@
+@import '../../../shared/styles/utils/variables';
+@import '../../../shared/styles/utils/mixins';
+
+.product-swiper {
+  &__container {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 639px;
+    width: 100%;
+    padding: 0 16px;
+    margin-bottom: $section-margin-bottom-mobile;
+    overflow-x: hidden;
+  }
+
+  &__top-panel {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24px;
+
+    width: 100%;
+  }
+
+  &__title {
+    width: 136px;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  &__button {
+    width: 32px;
+    height: 32px;
+    background-color: $surface2;
+    outline: none;
+    border: none;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 6px;
+
+    &:disabled {
+      border: 1px solid $elements;
+      background-color: $black;
+    }
+  }
+
+  &__button-prev {
+    margin-right: 16px;
+    background-image: url('icons/Arrow_Left_White.svg');
+
+    &:disabled {
+      background-image: url('icons/Arrow_Left.svg');
+    }
+  }
+
+  &__button-next {
+    background-image: url('icons/Arrow_Right_White.svg');
+
+    &:disabled {
+      background-image: url('icons/Arrow_Right.svg');
+    }
+  }
+}
+
+@include on-tablet {
+  .product-swiper {
+    &__container {
+      max-width: 1199px;
+      padding: 0 24px;
+      margin-bottom: $section-margin-bottom-tablet;
+    }
+
+    &__title {
+      width: fit-content;
+    }
+
+    &__button {
+      transition: transform 0.3s linear;
+
+      &:active {
+        background-color: $icons;
+        transform: scale(0.95);
+      }
+    }
+  }
+}
+
+@include on-desktop {
+  .product-swiper {
+    &__container {
+      margin-bottom: $section-margin-bottom-desktop;
+    }
+
+    &__button {
+      cursor: pointer;
+
+      &:hover {
+        background-color: $icons;
+      }
+    }
+  }
+}

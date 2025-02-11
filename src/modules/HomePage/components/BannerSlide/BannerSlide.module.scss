@@ -1,0 +1,109 @@
+@import '../../../shared/styles/utils/variables';
+@import '../../../shared/styles/utils/mixins';
+
+.banner-slide {
+  box-sizing: border-box;
+  width: 100%;
+  &__to-order {
+    display: none;
+  }
+
+  &__img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+  }
+}
+
+@include on-tablet {
+  .banner-slide {
+    display: flex;
+    justify-content: center;
+    gap: 3px;
+
+    &__to-order {
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+      align-self: center;
+      height: 95%;
+      width: 200px;
+      padding: 25px;
+      background-color: #222;
+      border-radius: 10px;
+
+      &-title {
+        color: $accent;
+        line-height: 110%;
+        width: 150px;
+        margin-bottom: 6px;
+      }
+
+      &-paragraph {
+        color: $secondary;
+        font-size: 7px;
+      }
+
+      &-link {
+        width: fit-content;
+        margin-top: auto;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: $white;
+        font-size: 8px;
+        padding: 10px 20px;
+        border: 1px solid $secondary;
+        border-radius: 50px;
+        transition: all 0.3s linear;
+
+        &:active {
+          background-color: $accent;
+          transform: scale(0.95);
+        }
+      }
+    }
+
+    &__picture {
+      display: flex;
+      align-items: flex-end;
+      height: 100%;
+    }
+
+    &__img {
+      object-fit: contain;
+      object-position: bottom;
+      width: 220px;
+      height: 100%;
+    }
+  }
+}
+
+@include on-desktop {
+  .banner-slide {
+    &__to-order {
+      width: 505px;
+      padding: 35px;
+
+      &-title {
+        font-size: 40px;
+        width: 90%;
+      }
+
+      &-paragraph {
+        font-size: 12px;
+      }
+
+      &-link {
+        font-size: 14px;
+        padding: 15px 35px;
+
+        &:hover {
+          background-color: $hover-accent;
+        }
+      }
+    }
+
+    &__img {
+      width: 520px;
+    }
+  }
+}
