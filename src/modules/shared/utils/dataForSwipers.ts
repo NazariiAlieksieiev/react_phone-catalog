@@ -1,7 +1,4 @@
-import { Product } from '../types/types';
-import { fetchJson } from './fetchJSON';
-
-const productsFromApi = fetchJson<Product[]>('products.json');
+import { productsFromApi } from './fetchJSON';
 
 export const getNewModels = async () => {
   const products = await productsFromApi;

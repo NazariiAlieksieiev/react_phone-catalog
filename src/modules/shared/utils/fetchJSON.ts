@@ -1,3 +1,5 @@
+import { Product } from '../types/types';
+
 export const fetchJson = async <T>(filePath: string): Promise<T | null> => {
   try {
     const response = await fetch(`/api/${filePath}`);
@@ -14,3 +16,5 @@ export const fetchJson = async <T>(filePath: string): Promise<T | null> => {
     return null;
   }
 };
+
+export const productsFromApi = fetchJson<Product[]>('products.json');

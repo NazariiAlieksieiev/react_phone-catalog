@@ -26,3 +26,5 @@ export type Product = {
   year: number;
   image: string;
 };
+
+export type Category = 'phones' | 'tablets' | 'accessories';

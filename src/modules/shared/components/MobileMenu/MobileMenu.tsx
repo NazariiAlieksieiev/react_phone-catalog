@@ -6,6 +6,7 @@ import { FavoriteCartLinks } from '../FavoriteCartLinks/FavoriteCartLinks';
 import { TopBar } from '../TopBar/TopBar';
 
 import style from './MobileMenu.module.scss';
+import { NavMenu } from '../NavMenu/NavMenu';
 
 export const MobileMenu: React.FC = () => {
   const location = useLocation();
@@ -17,28 +18,7 @@ export const MobileMenu: React.FC = () => {
     >
       <TopBar />
 
-      <ul className={style['nav-menu__list-items']}>
-        <li className={style['nav-menu__list-item']}>
-          <a href="" className={style['nav-menu__list-link']}>
-            Home
-          </a>
-        </li>
-        <li className={style['nav-menu__list-item']}>
-          <a href="" className={style['nav-menu__list-link']}>
-            Phones
-          </a>
-        </li>
-        <li className={style['nav-menu__list-item']}>
-          <a href="" className={style['nav-menu__list-link']}>
-            Tablets
-          </a>
-        </li>
-        <li className={style['nav-menu__list-item']}>
-          <a href="" className={style['nav-menu__list-link']}>
-            Accessories
-          </a>
-        </li>
-      </ul>
+      <NavMenu />
 
       <div className={style['nav-menu__container-for-links']}>
         <FavoriteCartLinks />

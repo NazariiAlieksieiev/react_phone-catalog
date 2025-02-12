@@ -2,13 +2,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import style from './TopBar.module.scss';
 import React from 'react';
 import { FavoriteCartLinks } from '../FavoriteCartLinks/FavoriteCartLinks';
-
-const navBarLinks = [
-  { name: 'home', path: '/home' },
-  { name: 'phones', path: '/catalog/phones' },
-  { name: 'tablets', path: '/catalog/tablets' },
-  { name: 'accessories', path: '/catalog/accessories' },
-];
+import { NavMenu } from '../NavMenu/NavMenu';
 
 export const TopBar: React.FC = () => {
   const location = useLocation();
@@ -34,17 +28,9 @@ export const TopBar: React.FC = () => {
         />
       </Link>
 
-      <nav className={style['top-bar__nav']}>
-        <ul className={style['top-bar__list-items']}>
-          {navBarLinks.map(({ name, path }) => (
-            <li className={style['top-bar__list-item']} key={name}>
-              <Link to={path} className={style['top-bar__list-link']}>
-                {name}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </nav>
+      <div className={style['top-bar__responsive-wrapper']}>
+        <NavMenu />
+      </div>
 
       <div className={style['top-bar__button']}>
         <button
