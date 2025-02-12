@@ -1,7 +1,7 @@
 @import '../../../shared/styles/utils/variables';
 @import '../../../shared/styles/utils/mixins';
 
-.nav-menu {
+.mobile-menu {
   z-index: 10;
   overflow-y: scroll;
 
@@ -21,54 +21,6 @@
   transition: transform 0.3s;
   transform: translateX(-100%);
 
-  @include on-tablet {
-    display: none;
-  }
-
-  &__list-items {
-    list-style: none;
-    padding-top: 24px;
-    height: 100%;
-  }
-
-  &__list-item {
-    text-align: center;
-  }
-
-  &__list-item:not(:last-child) {
-    margin-bottom: 16px;
-  }
-
-  &__list-link {
-    text-align: center;
-    text-transform: uppercase;
-    color: $secondary;
-    text-decoration: none;
-    font-family: Mont, sans-serif;
-    font-size: 12px;
-    font-weight: 800;
-    line-height: 11px;
-    letter-spacing: 0.04em;
-    padding: 8px 0;
-    position: relative;
-
-    display: inline-block;
-
-    &:hover {
-      color: $white;
-
-      &::before {
-        position: absolute;
-        content: '';
-        width: 100%;
-        height: 2px;
-        background-color: $white;
-        bottom: 0;
-        left: 0;
-      }
-    }
-  }
-
   &__container-for-links {
     width: 100%;
     height: 64px;
@@ -77,5 +29,11 @@
 
   &--isOpen {
     transform: translateX(0);
+  }
+}
+
+@include on-tablet {
+  .mobile-menu {
+    display: none;
   }
 }

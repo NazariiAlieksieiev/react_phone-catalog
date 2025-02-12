@@ -7,7 +7,6 @@
   &__list-items {
     list-style: none;
     padding-top: 24px;
-    height: 100%;
   }
 
   &__list-item {
@@ -47,18 +46,13 @@
       }
     }
   }
-
-  &__container-for-links {
-    width: 100%;
-    height: 64px;
-    border-top: 1px solid $elements;
-  }
 }
 
 @include on-tablet {
   .nav-menu {
     &__list-items {
       display: flex;
+      height: 100%;
       align-items: center;
       padding-top: 0;
     }
@@ -86,8 +80,8 @@
           width: 100%;
           height: 2px;
           background-color: $white;
-          bottom: -18px;
           left: 0;
+          bottom: -12px;
         }
       }
     }
@@ -107,13 +101,7 @@
         color: $white;
 
         &::before {
-          position: absolute;
-          content: '';
-          width: 100%;
-          height: 2px;
-          background-color: $white;
-          bottom: -18px;
-          left: 0;
+          bottom: -12px;
         }
       }
     }
