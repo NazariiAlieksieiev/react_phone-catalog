@@ -10,10 +10,10 @@ import 'swiper/scss';
 import 'swiper/css/a11y';
 import 'swiper/scss/pagination';
 import style from './BannerSwiper.module.scss';
-import { Slide } from '../../../shared/types/types';
-import { fetchJson } from '../../../shared/utils/fetchJSON';
+import { Slide } from '../../../../types/types';
+import { getJSONData } from '../../../../utils/axiosJSON';
 
-const slidesFromApiPromise = fetchJson<Slide[]>('banner_slides.json');
+const slidesFromApiPromise = getJSONData<Slide[]>('banner_slides.json');
 
 export const BannerSwiper: React.FC = () => {
   const [swiper, setSwiper] = useState<SwiperInstance | null>(null);

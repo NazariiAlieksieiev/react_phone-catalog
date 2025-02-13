@@ -1,23 +1,33 @@
 /* eslint-disable @typescript-eslint/dot-notation */
 import { useEffect, useState } from 'react';
 import style from './Categories.module.scss';
-import { Categories as CategoriesType } from '../../../shared/types/types';
-import { fetchJson } from '../../../shared/utils/fetchJSON';
+import { ProductCategories } from '../../../../types/types';
+import { getJSONData } from '../../../../utils/axiosJSON';
+import { useAppSelector } from '../../../../app/hooks';
 
 export const Categories: React.FC = () => {
-  const [categories, setCategories] = useState<CategoriesType[]>([]);
+  const [categories, setCategories] = useState<ProductCategories[]>([]);
+  const { phones, tablets, accessories } = useAppSelector(
+    state => state.products,
+  );
+
+  const categoriesProductLength = [
+    phones.length,
+    tablets.length,
+    accessories.length,
+  ];
 
   useEffect(() => {
-    const loadCategory = async () => {
+    const loadProductCategories = async () => {
       const slidesFromApi =
-        await fetchJson<CategoriesType[]>('categories.json');
+        await getJSONData<ProductCategories[]>('categories.json');
 
       if (slidesFromApi) {
         setCategories(slidesFromApi);
       }
     };
 
-    loadCategory();
+    loadProductCategories();
   }, []);
 
   return (
@@ -25,7 +35,10 @@ export const Categories: React.FC = () => {
       <h2 className={style[`categories__title`]}>Shop by category</h2>
 
       {categories.map((category, i) => (
-        <div className={style[`categories__category`]} key={i}>
+        <div
+          className={style[`categories__category`]}
+          key={category.categoryName}
+        >
           <a
             href="#"
             className={style['categories__category-link']}
@@ -41,7 +54,9 @@ export const Categories: React.FC = () => {
           <a href="#" className={style['categories__category-title']}>
             {category.categoryName}
           </a>
-          <p className={style['categories__category-amount']}>95 models</p>
+          <p className={style['categories__category-amount']}>
+            {categoriesProductLength[i]} models
+          </p>
         </div>
       ))}
     </div>

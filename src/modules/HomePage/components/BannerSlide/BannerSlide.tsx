@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import React from 'react';
 import style from './BannerSlide.module.scss';
-import { Slide } from '../../../shared/types/types';
+import { Slide } from '../../../../types/types';
 
 interface Props {
   slideInfo: Slide;

@@ -5,7 +5,7 @@ export type Slide = {
   backgroundColor: string;
 };
 
-export type Categories = {
+export type ProductCategories = {
   categoryName: string;
   categoryBackground: string;
   categoryImg: string;

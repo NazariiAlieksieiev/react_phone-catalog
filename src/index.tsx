@@ -1,13 +1,21 @@
 import { createRoot } from 'react-dom/client';
-import { App } from './App';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { Provider } from 'react-redux';
+import { HashRouter as Router } from 'react-router-dom';
 import './index.scss';
-import React from 'react';
-import { HashRouter } from 'react-router-dom';
 
-createRoot(document.getElementById('root') as HTMLElement).render(
-  <React.StrictMode>
-    <HashRouter>
+import { store } from './app/store';
+import { App } from './App';
+
+const container = document.getElementById('root') as HTMLElement;
+const root = createRoot(container);
+
+const Root = () => (
+  <Provider store={store}>
+    <Router>
       <App />
-    </HashRouter>
-  </React.StrictMode>,
+    </Router>
+  </Provider>
 );
+
+root.render(<Root />);

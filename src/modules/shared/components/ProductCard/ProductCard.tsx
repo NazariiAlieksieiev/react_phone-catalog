@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import style from './ProductCard.module.scss';
-import { Product } from '../../types/types';
+import { Product } from '../../../../types/types';
 
 interface Props {
   cardData: Product;

@@ -1,36 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import style from './HomePage.module.scss';
 import { Categories } from './components/Categories/Categories';
 import { ProductSwiper } from './components/ProductsSwiper/ProductsSwiper';
 import { BannerSwiper } from './components/BannerSwiper/BannerSwiper';
-import { Product } from '../shared/types/types';
-import { getHotPrices, getNewModels } from '../shared/utils/dataForSwipers';
+import { useAppSelector } from '../../app/hooks';
 
 export const HomePage: React.FC = () => {
-  const [newModels, setNewModels] = useState<Product[]>([]);
-  const [hotPrices, setHotPrices] = useState<Product[]>([]);
-
-  useEffect(() => {
-    const loadProducts = async () => {
-      try {
-        const newModelsFromApi = await getNewModels();
-        const hotPricesFromApi = await getHotPrices();
-
-        if (newModelsFromApi) {
-          setNewModels(newModelsFromApi);
-        }
-
-        if (hotPricesFromApi) {
-          setHotPrices(hotPricesFromApi);
-        }
-      } catch (error) {
-        // eslint-disable-next-line no-console
-        console.error('Failed to load slides:', error);
-      }
-    };
-
-    loadProducts();
-  }, []);
+  const { newModels, hotPrices } = useAppSelector(state => state.products);
 
   return (
     <>

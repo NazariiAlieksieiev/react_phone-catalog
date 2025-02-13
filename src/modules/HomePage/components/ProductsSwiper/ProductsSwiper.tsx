@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 // eslint-disable-next-line max-len
 import { ProductCard } from '../../../shared/components/ProductCard/ProductCard';
 import style from './ProductsSwiper.module.scss';
-import { Product } from '../../../shared/types/types';
+import { Product } from '../../../../types/types';
 
 interface Props {
   cardsData: Product[];

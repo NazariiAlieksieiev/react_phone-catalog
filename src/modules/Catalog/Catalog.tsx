@@ -1,28 +1,20 @@
-import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Category, Product } from '../shared/types/types';
-import { getProductByCategory } from '../shared/utils/dataForCatalog';
+import { useAppSelector } from '../../app/hooks';
+import { Category } from '../../types/types';
 
 export const Catalog: React.FC = () => {
-  const [products, setProducts] = useState<Product[]>([]);
-  const { category } = useParams();
+  const categories = useAppSelector(state => ({
+    phones: state.products.phones,
+    tablets: state.products.tablets,
+    accessories: state.products.accessories,
+  }));
 
-  useEffect(() => {
-    const loadProductsByCategory = async () => {
-      const productsByCategory = await getProductByCategory(
-        category as Category,
-      );
+  const { category } = useParams<{ category: Category }>();
 
-      if (productsByCategory) {
-        setProducts(productsByCategory);
-      }
-    };
-
-    loadProductsByCategory();
-  }, [category]);
-
-  // eslint-disable-next-line no-console
-  console.log(products);
+  if (category) {
+    // eslint-disable-next-line no-console
+    console.log(categories[category], category);
+  }
 
   return <h1>Soon This will be Catalog page</h1>;
 };
