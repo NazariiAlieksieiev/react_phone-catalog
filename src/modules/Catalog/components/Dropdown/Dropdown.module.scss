@@ -1,0 +1,79 @@
+@import '../../../shared/styles/utils/variables';
+@import '../../../shared/styles/utils/mixins';
+
+.dropdown {
+  box-sizing: border-box;
+  position: relative;
+  width: 136px;
+
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 21px;
+  color: $white;
+
+  &__title {
+    color: $secondary;
+    margin-bottom: 4px;
+    font-size: 12px;
+    line-height: 15.34px;
+    letter-spacing: 0%;
+  }
+
+  &__active-option {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 12px;
+    background-color: $surface2;
+
+    &-name {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+  &__show-options,
+  &__hide-options {
+    background: none;
+    border: none;
+    cursor: pointer;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 16px;
+    height: 16px;
+  }
+
+  &__show-options {
+    background-image: url('../../../../../public/icons/Arrow_Up.png');
+  }
+
+  &__hide-options {
+    background-image: url('../../../../../public/icons/Arrow_Down.png');
+  }
+
+  &__options {
+    box-sizing: border-box;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    margin-top: 4px;
+    padding: 0;
+    list-style: none;
+    background-color: $black;
+    z-index: 1000;
+    border: 1px solid $surface2;
+  }
+
+  &__option {
+    padding: 10px 12px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $surface2
+    }
+  }
+}

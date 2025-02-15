@@ -1,0 +1,42 @@
+@import '../../../shared/styles/utils/variables';
+@import '../../../shared/styles/utils/mixins';
+
+.navigation-string {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding-top: 25px;
+  margin-bottom: 24px;
+
+  &__go-home-link {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-image: url('../../../public/icons/Home.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  &__product-link {
+    display: flex;
+    align-items: center;
+    color: $secondary;
+    text-decoration: none;
+    text-transform: capitalize;
+    font-size: 12px;
+    line-height: 15px;
+
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 5px;
+      height: 9px;
+      background-image: url('../../../../../public/icons/Arrow_Right.svg');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      margin-right: 13px;
+    }
+  }
+}

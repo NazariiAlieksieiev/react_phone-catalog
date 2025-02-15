@@ -1,11 +1,11 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import style from './NavMenu.module.scss';
 
 const navBarLinks = [
-  { name: 'home', path: '/home' },
-  { name: 'phones', path: '/catalog/phones' },
-  { name: 'tablets', path: '/catalog/tablets' },
-  { name: 'accessories', path: '/catalog/accessories' },
+  { name: 'Home', path: '/home' },
+  { name: 'Phones', path: '/catalog/phones' },
+  { name: 'Tablets', path: '/catalog/tablets' },
+  { name: 'Accessories', path: '/catalog/accessories' },
 ];
 
 export const NavMenu: React.FC = () => {
@@ -14,9 +14,14 @@ export const NavMenu: React.FC = () => {
       <ul className={style['nav-menu__list-items']}>
         {navBarLinks.map(({ name, path }) => (
           <li className={style['nav-menu__list-item']} key={name}>
-            <Link to={path} className={style['nav-menu__list-link']}>
+            <NavLink
+              to={path}
+              className={({ isActive }) =>
+                `${style['nav-menu__list-link']} ${isActive ? style.active : ''}`
+              }
+            >
               {name}
-            </Link>
+            </NavLink>
           </li>
         ))}
       </ul>

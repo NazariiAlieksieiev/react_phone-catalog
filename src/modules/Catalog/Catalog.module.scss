@@ -1,3 +1,31 @@
-h1 {
-  background-color: black;
+@import '../../modules/shared/styles/utils/variables';
+@import '../../modules/shared/styles/utils/mixins';
+
+.catalog {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 320px;
+  max-width: $breakpoint-mobile;
+  padding: $container-padding-mobile;
+
+  &__title {
+    margin-bottom: 8px;
+  }
+
+  &__items-number {
+    color: $secondary;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+    margin-bottom: 32px;
+  }
+
+  &__selectors {
+    display: flex;
+    width: 100%;
+    margin-bottom: 24px;
+    justify-content: space-between;
+  }
 }
