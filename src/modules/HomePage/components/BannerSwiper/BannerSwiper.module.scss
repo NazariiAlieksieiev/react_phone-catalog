@@ -30,7 +30,7 @@
     &__container {
       box-sizing: border-box;
       max-width: 1199px;
-      padding: 0 24px;
+      padding: $container-padding-tablet;
       margin-bottom: $section-margin-bottom-tablet;
     }
 
@@ -79,7 +79,9 @@
 @include on-desktop {
   .banner-swiper {
     &__container {
+      max-width: 1200px;
       margin-bottom: $section-margin-bottom-desktop;
+      padding: $container-padding-desktop;
     }
 
     &__slide {

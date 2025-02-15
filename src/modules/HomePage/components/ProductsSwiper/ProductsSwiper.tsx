@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Swiper as SwiperInstance } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
-
 // eslint-disable-next-line max-len
 import { ProductCard } from '../../../shared/components/ProductCard/ProductCard';
 import style from './ProductsSwiper.module.scss';
@@ -22,6 +21,27 @@ export const ProductSwiper: React.FC<Props> = ({
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
 
+  const handleSlideChange = (s: SwiperInstance) => {
+    setIsBeginning(s.isBeginning);
+
+    if (!s.slides.length) {
+      return;
+    }
+
+    const swiperWidth = s.el.clientWidth;
+    const lastSlide = s.slides[s.slides.length - 1] as HTMLElement;
+    const lastSlideOffset = lastSlide.offsetLeft;
+    const currentTranslate = Math.abs(s.translate);
+
+    const isLastSlideVisible = lastSlideOffset - currentTranslate < swiperWidth;
+
+    setIsEnd(isLastSlideVisible);
+
+    // eslint-disable-next-line no-param-reassign
+    s.params.allowSlideNext = !isLastSlideVisible;
+    s.update();
+  };
+
   return (
     <div className={style['product-swiper__container']}>
       <div className={style['product-swiper__top-panel']}>
@@ -30,16 +50,12 @@ export const ProductSwiper: React.FC<Props> = ({
         <div className={style['product-swiper__buttons']}>
           <button
             className={`${style['product-swiper__button-prev']} ${style['product-swiper__button']}`}
-            onClick={() => {
-              swiper?.slidePrev();
-            }}
+            onClick={() => swiper?.slidePrev()}
             disabled={isBeginning}
           ></button>
           <button
             className={`${style['product-swiper__button-next']} ${style['product-swiper__button']}`}
-            onClick={() => {
-              swiper?.slideNext();
-            }}
+            onClick={() => swiper?.slideNext()}
             disabled={isEnd}
           ></button>
         </div>
@@ -49,12 +65,9 @@ export const ProductSwiper: React.FC<Props> = ({
         spaceBetween={16}
         slidesPerView={'auto'}
         onSwiper={setSwiper}
-        onSlideChange={s => {
-          setIsBeginning(s.isBeginning);
-          setIsEnd(s.isEnd);
-        }}
-        onReachEnd={() => setIsEnd(true)}
-        onReachBeginning={() => setIsBeginning(true)}
+        onSlideChange={handleSlideChange}
+        allowSlideNext={!isEnd}
+        className={style['product-swiper--desktop-width']}
       >
         {cardsData.map((cardData, i) => (
           <SwiperSlide

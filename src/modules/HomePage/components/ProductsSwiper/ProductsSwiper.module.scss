@@ -9,7 +9,7 @@
     align-items: center;
     max-width: 639px;
     width: 100%;
-    padding: 0 16px;
+    padding: $container-padding-mobile;
     margin-bottom: $section-margin-bottom-mobile;
     overflow-x: hidden;
   }
@@ -71,7 +71,7 @@
   .product-swiper {
     &__container {
       max-width: 1199px;
-      padding: 0 24px;
+      padding: $container-padding-tablet;
       margin-bottom: $section-margin-bottom-tablet;
     }
 
@@ -93,6 +93,8 @@
 @include on-desktop {
   .product-swiper {
     &__container {
+      max-width: 1200px;
+      padding: $container-padding-desktop;
       margin-bottom: $section-margin-bottom-desktop;
     }
 
@@ -102,6 +104,10 @@
       &:hover {
         background-color: $icons;
       }
+    }
+
+    &--desktop-width {
+      max-width: 1136px;
     }
   }
 }

@@ -7,11 +7,16 @@
   align-items: center;
   max-width: 639px;
   width: 100%;
-  padding: 0 16px;
+  padding: $container-padding-mobile;
 
   @include on-tablet {
     max-width: 1199px;
     width: 100%;
-    padding: 0 24px;
+    padding: $container-padding-tablet;
+  }
+
+  @include on-desktop {
+    min-width: 1200px;
+    padding: $container-padding-desktop;
   }
 }

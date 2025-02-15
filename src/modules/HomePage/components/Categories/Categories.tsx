@@ -19,11 +19,11 @@ export const Categories: React.FC = () => {
 
   useEffect(() => {
     const loadProductCategories = async () => {
-      const slidesFromApi =
+      const categoriesParams =
         await getJSONData<ProductCategories[]>('categories.json');
 
-      if (slidesFromApi) {
-        setCategories(slidesFromApi);
+      if (categoriesParams) {
+        setCategories(categoriesParams);
       }
     };
 

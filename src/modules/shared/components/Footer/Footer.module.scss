@@ -8,7 +8,7 @@
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
-  padding: 0 16px;
+  padding: $container-padding-mobile;
   border-top: 1px solid $elements;
 
   &__logo {
@@ -84,7 +84,7 @@
     justify-content: space-between;
     align-items: center;
     flex-direction: row;
-    padding: 0 24px;
+    padding: $container-padding-tablet;
     width: 100%;
 
     &__logo {
@@ -120,6 +120,7 @@
 
 @include on-desktop {
   .footer {
+    padding: $container-padding-desktop;
 
     &__list {
       &-item {
